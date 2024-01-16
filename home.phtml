@@ -1,0 +1,51 @@
+<?php
+var_dump($_GET["category"]);
+
+
+
+
+
+
+$titles = [];
+
+foreach ($posts as $category => $categoryPosts) {
+    $titles[$category] = [];
+
+    foreach ($categoryPosts as $i => $post) {
+        if ($i < 3) {
+            $titles[$category][$i] = $post;
+        }
+    }
+}
+
+
+?>
+
+
+<main id="home" class="p-3">
+    <h1 class="text-center m-5">Ze blog</h1>
+    <?php foreach ($titles as $category => $title) { ?>
+        <section class="my-5">
+            <h2><?= ucfirst($category) ?></h2>
+            <ul class="row p-0">
+
+                <?php foreach ($title as $post) { ?>
+                    <li class="col m-1">
+                        <article class="card">
+                            <header class="card-header p-0">
+                                <img src="https://picsum.photos/id/1/550/250" class="card-img-top" alt="" />
+                                <h3><?= $post["title"]; ?></h3>
+                            </header>
+                            <section class="card-body p-2">
+                                <p><?= $post["excerpt"]; ?></p>
+                            </section>
+                            <footer class="p-2">
+                                <a href="index.php?route=article&category=<?= $category ?>" class="btn btn-primary">Lire l'article</a>
+                            </footer>
+                        </article>
+                    </li>
+                <?php } ?>
+            </ul>
+        </section>
+    <?php } ?>
+</main>

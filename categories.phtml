@@ -1,0 +1,86 @@
+<?php
+
+var_dump($_GET['category']);
+
+
+
+
+?>
+
+<main id="home" class="p-3">
+    <?php if ($_GET['category'] === "design") : ?>
+        <h1 class="text-center m-5">Design</h1>
+        <ul class="row p-0">
+            <?php foreach ($posts["design"] as $key => $post) { ?>
+                <li class="col-4 my-3">
+                    <article class="card">
+                        <header class="card-header p-0">
+                            <img src="https://picsum.photos/id/1/550/250" class="card-img-top" alt="" />
+                            <h3 class="card-title px-2 py-3">
+                                <?= $post['title']; ?>
+                            </h3>
+                        </header>
+                        <section class="card-body p-2">
+                            <p class="card-text">
+                                <?= $post['excerpt']; ?>
+                            </p>
+                        </section>
+                        <footer class="p-2">
+                            <a href="#" class="btn btn-primary">Lire l'article</a>
+                        </footer>
+                    </article>
+                </li>
+            <?php } ?>
+        </ul>
+    <?php endif ?>
+    <?php if ($_GET['category'] === "development") : ?>
+        <h1 class="text-center m-5">Development</h1>
+        <ul class="row p-0">
+            <?php foreach ($posts["development"] as $key => $post) { ?>
+                <li class="col-4 my-3">
+                    <article class="card">
+                        <header class="card-header p-0">
+                            <img src="https://picsum.photos/id/1/550/250" class="card-img-top" alt="" />
+                            <h3 class="card-title px-2 py-3">
+                                <?= $post['title']; ?>
+                            </h3>
+                        </header>
+                        <section class="card-body p-2">
+                            <p class="card-text">
+                                <?= $post['title']; ?>
+                            </p>
+                        </section>
+                        <footer class="p-2">
+                            <a href="#" class="btn btn-primary">Lire l'article</a>
+                        </footer>
+                    </article>
+                </li>
+            <?php } ?>
+        </ul>
+    <?php endif ?>
+    <?php if ($_GET['category'] === "accessibility") : ?>
+        <h1 class="text-center m-5">Accessibility</h1>
+        <ul class="row p-0">
+            <?php foreach ($posts["accessibility"] as $key => $post) { ?>
+                <li class="col-4 my-3">
+                    <article class="card">
+                        <header class="card-header p-0">
+                            <img src="https://picsum.photos/id/1/550/250" class="card-img-top" alt="" />
+                            <h3 class="card-title px-2 py-3">
+                                Titre de l'article
+                            </h3>
+                        </header>
+                        <section class="card-body p-2">
+                            <p class="card-text">
+                                Extrait de l'article
+                            </p>
+                        </section>
+                        <footer class="p-2">
+                            <a href="#" class="btn btn-primary">Lire l'article</a>
+                        </footer>
+                    </article>
+                </li>
+            <?php } ?>
+        </ul>
+    <?php endif ?>
+</main>

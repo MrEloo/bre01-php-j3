@@ -1,0 +1,98 @@
+<?php
+
+$titles = [];
+
+
+foreach ($posts as $category => $categoryPosts) {
+    $titles[$category] = [];
+    foreach ($categoryPosts as $key => $post) {
+        $titles[$category][$key] = $post;
+    }
+}
+
+?>
+
+<main id="post">
+    <?php if ($_GET['category'] === "design") { ?>
+        <article class="container mb-5">
+            <header>
+                <img class="img-fluid" src="https://picsum.photos/id/17/2000/600" alt="" />
+                <?php foreach ($titles as $category => $title) { ?>
+                    <?php if ($category === $_GET['category']) { ?>
+                        <h1 class="my-5">
+                            <?= ucfirst($category) ?>
+                        </h1>
+            </header>
+            <section>
+                <?php foreach ($title as $post) { ?>
+                    <?php if ($category === $_GET['category']) { ?>
+                        <p>
+                            <?= $post['excerpt']; ?>
+                        </p>
+                        <p>
+                            <?= $post['content']; ?>
+                        </p>
+                    <?php } ?>
+                <?php } ?>
+            <?php } ?>
+            </section>
+        <?php } ?>
+        </article>
+    <?php } ?>
+</main>
+<main id="post">
+    <?php if ($_GET['category'] === "development") { ?>
+        <article class="container mb-5">
+            <header>
+                <img class="img-fluid" src="https://picsum.photos/id/17/2000/600" alt="" />
+                <?php foreach ($titles as $category => $title) { ?>
+                    <?php if ($category === $_GET['category']) { ?>
+                        <h1 class="my-5">
+                            <?= ucfirst($category) ?>
+                        </h1>
+            </header>
+            <section>
+                <?php foreach ($title as $post) { ?>
+                    <?php if ($category === $_GET['category']) { ?>
+                        <p>
+                            <?= $post['excerpt']; ?>
+                        </p>
+                        <p>
+                            <?= $post['content']; ?>
+                        </p>
+                    <?php } ?>
+                <?php } ?>
+            <?php } ?>
+            </section>
+        <?php } ?>
+        </article>
+    <?php } ?>
+</main>
+<main id="post">
+    <?php if ($_GET['category'] === "accessibility") { ?>
+        <article class="container mb-5">
+            <header>
+                <img class="img-fluid" src="https://picsum.photos/id/17/2000/600" alt="" />
+                <?php foreach ($titles as $category => $title) { ?>
+                    <?php if ($category === $_GET['category']) { ?>
+                        <h1 class="my-5">
+                            <?= ucfirst($category) ?>
+                        </h1>
+            </header>
+            <section>
+                <?php foreach ($title as $post) { ?>
+                    <?php if ($category === $_GET['category']) { ?>
+                        <p>
+                            <?= $post['excerpt']; ?>
+                        </p>
+
+                        <?= $post['content']; ?>
+
+                    <?php } ?>
+                <?php } ?>
+            <?php } ?>
+            </section>
+        <?php } ?>
+        </article>
+    <?php } ?>
+</main>
